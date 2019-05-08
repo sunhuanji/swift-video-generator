@@ -54,6 +54,9 @@ public class VideoGenerator: NSObject {
   
   /// public property to set a width to which to resize the images for multiple video generation. Default value is 800
   open var videoImageWidthForMultipleVideoGeneration = 800
+    
+  /// public property to set a height to which to resize the images for multiple video generation. Default value is 800
+  open var videoImageHeightForMultipleVideoGeneration = 800
   
   /// public property to set the video duration when there is no audio
   open var videoDurationInSeconds: Double = 0 {
@@ -574,7 +577,7 @@ public class VideoGenerator: NSObject {
       
       for _image in _images {
         autoreleasepool {
-          if let imageData = _image.scaleImageToSize(newSize: CGSize(width: videoImageWidthForMultipleVideoGeneration, height: videoImageWidthForMultipleVideoGeneration))?.pngData() {
+          if let imageData = _image.scaleImageToSize(newSize: CGSize(width: videoImageWidthForMultipleVideoGeneration, height: videoImageHeightForMultipleVideoGeneration))?.pngData() {
             datasImages.append(imageData)
           }
         }
@@ -673,7 +676,7 @@ public class VideoGenerator: NSObject {
   fileprivate var minSize = CGSize.zero
   
   /// private property to store the minimum duration for a single video
-  fileprivate var minSingleVideoDuration: Double = 1.0
+  fileprivate var minSingleVideoDuration: Double = 1.1
   
   /// private property to store the video resource for reversing
   fileprivate var reversedVideoURL: URL?
