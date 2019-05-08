@@ -584,7 +584,7 @@ public class VideoGenerator: NSObject {
       }
       
       datasImages.forEach {
-        if let imageData = $0, let image = UIImage(data: imageData, scale: UIScreen.main.scale) {
+        if let imageData = $0, let image = UIImage(data: imageData) {
           self.images.append(image)
         }
       }
