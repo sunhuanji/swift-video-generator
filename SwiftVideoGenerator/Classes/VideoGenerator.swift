@@ -216,7 +216,7 @@ public class VideoGenerator: NSObject {
               videoWriter.finishWriting { () -> Void in
                 if self?.audioURLs.isEmpty == true {
                   if let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first {
-                    let newPath = URL(fileURLWithPath: documentsPath + "\(self?.fileName ?? "").mp4")
+                    let newPath = URL(fileURLWithPath: documentsPath + "\(self?.fileName ?? "").m4v")
                     self?.deleteFile(pathURL: newPath, completion: {
                       try FileManager.default.moveItem(at: videoOutputURL, to: newPath)
                     })
@@ -676,7 +676,7 @@ public class VideoGenerator: NSObject {
   fileprivate var minSize = CGSize.zero
   
   /// private property to store the minimum duration for a single video
-  fileprivate var minSingleVideoDuration: Double = 1.1
+  fileprivate var minSingleVideoDuration: Double = 1
   
   /// private property to store the video resource for reversing
   fileprivate var reversedVideoURL: URL?
